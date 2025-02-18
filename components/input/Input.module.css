@@ -1,0 +1,78 @@
+.inputGroup {
+	position: relative;
+}
+
+.inputGroup .input {
+	font-size: 16px;
+	padding: 5px;
+	display: block;
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid var(--placeholder);
+	background: transparent;
+}
+
+.inputGroup .input:focus {
+	outline: none;
+}
+
+.inputGroup .label {
+	color: var(--placeholder);
+	font-size: 16px;
+	font-weight: normal;
+	position: absolute;
+	pointer-events: none;
+	left: 5px;
+	top: 5px;
+	display: flex;
+}
+
+.inputGroup .label {
+	transition: 0.2s ease all;
+}
+
+.inputGroup .input:focus ~ label,
+.inputGroup .input:valid ~ label {
+	transform: translateY(-25px) translateX(-5px);
+	font-family: var(--font-geist-mono);
+	line-height: 24px;
+	font-size: 13px;
+}
+
+.inputGroup .underline {
+	position: relative;
+	display: block;
+	width: 100%;
+}
+
+.inputGroup .underline:before,
+.inputGroup .underline:after {
+	content: "";
+	height: 2px;
+	width: 0;
+	bottom: 1px;
+	position: absolute;
+	background: var(--foreground);
+	transition: 0.2s ease all;
+	-moz-transition: 0.2s ease all;
+	-webkit-transition: 0.2s ease all;
+}
+
+.inputGroup .underline:before {
+	left: 50%;
+}
+
+.inputGroup .underline:after {
+	right: 50%;
+}
+
+.inputGroup .input:focus ~ .underline:before,
+.inputGroup .input:focus ~ .underline:after {
+	width: 50%;
+}
+
+.error {
+	color: #f03131;
+	font-size: 12px;
+	margin-top: 5px;
+}
