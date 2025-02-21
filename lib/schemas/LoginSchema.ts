@@ -1,9 +1,7 @@
 import { z } from "zod";
 
-const registerSchema = z.object({
+const loginSchema = z.object({
 	email: z.string().email("Invalid email format."),
-	name: z.string().min(3, "The name must contain at least 3 characters."),
-	surname: z.string().min(3, "The surname must contain at least 3 characters."),
 	password: z
 		.string()
 		.min(8, "The password must contain at least 8 characters."),
@@ -15,4 +13,4 @@ const registerSchema = z.object({
 	// ),
 });
 
-export default registerSchema;
+export default loginSchema;

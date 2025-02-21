@@ -1,6 +1,6 @@
 .form {
 	width: 380px;
-	padding: 25px;
+	padding: 30px 25px;
 	display: flex;
 	flex-direction: column;
 	gap: 25px;

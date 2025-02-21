@@ -1,13 +1,13 @@
 "use client";
 
 import { useActionState } from "react";
-import { registerUser } from "@/lib/auth/actions/registration";
-import styles from "./registration.module.css";
+import { registrationUser } from "@/lib/auth/actions/registration";
+import styles from "@/styles/form.module.css";
 import Input from "@/components/input/Input";
 import Button from "@/components/button/Button";
 
-export default function RegistrationPage() {
-	const [formState, formAction] = useActionState(registerUser, {
+export default function SingUpPage() {
+	const [formState, formAction] = useActionState(registrationUser, {
 		values: { name: "", surname: "", email: "" },
 		errors: {},
 		error: "",
@@ -19,29 +19,30 @@ export default function RegistrationPage() {
 				<Input
 					name="name"
 					type="text"
-					defaultValue={formState.values?.name || ""}
-					error={formState.errors?.name || ""}
+					defaultValue={formState?.values?.name || ""}
+					error={formState?.errors?.name || ""}
 				/>
 				<Input
 					name="surname"
 					type="text"
-					defaultValue={formState.values?.surname || ""}
-					error={formState.errors?.surname || ""}
+					defaultValue={formState?.values?.surname || ""}
+					error={formState?.errors?.surname || ""}
 				/>
 				<Input
 					name="email"
 					type="text"
 					autocomplete="email"
-					defaultValue={formState.values?.email || ""}
-					error={formState.errors?.email || ""}
+					defaultValue={formState?.values?.email || ""}
+					error={formState?.errors?.email || ""}
 				/>
 				<Input
 					name="password"
 					type="password"
 					autocomplete="new-password"
-					error={formState.errors?.password || ""}
+					error={formState?.errors?.password || ""}
 				/>
-				<Button type="submit" text="Sign Up" error={formState.error || ""} />
+				<Button type="submit" text="Sign Up" />
+				<p className={styles.error}>{formState?.error || ""}</p>
 			</form>
 		</div>
 	);

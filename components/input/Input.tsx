@@ -5,7 +5,7 @@ interface InputProps {
 	type: string;
 	defaultValue?: string;
 	autocomplete?: string;
-	error: string;
+	error?: string;
 }
 export default function Input({
 	name,

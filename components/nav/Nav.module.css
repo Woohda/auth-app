@@ -2,7 +2,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	font-family: var(--font-geist-mono);
+	font-family: var(--font-geist-mono, monospace);
 	font-size: 16px;
 	line-height: 24px;
 }

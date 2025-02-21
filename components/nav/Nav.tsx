@@ -1,7 +1,10 @@
 import Link from "next/link";
 import styles from "./Nav.module.css";
+import { auth } from "@/app/api/auth/auth";
 
 export default function Nav() {
+	const session = auth();
+	console.log(session);
 	return (
 		<nav className={styles.nav}>
 			<Link className={styles.logo} href="/">

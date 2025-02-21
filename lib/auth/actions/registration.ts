@@ -1,26 +1,26 @@
 "use server";
 
 import bcrypt from "bcryptjs";
-import { redirect } from "next/navigation";
-import RegisterSchema from "@/lib/schemas/RegisterSchema";
+// import { redirect } from "next/navigation";
+import registerSchema from "@/lib/schemas/RegisterSchema";
 import { db } from "@/lib/prisma/db";
 
 // Валидация email и пароля
 
-export async function registerUser(prevState: unknown, formData: FormData) {
+export async function registrationUser(prevState: unknown, formData: FormData) {
 	const { name, surname, email, password } = Object.fromEntries(
 		formData
 	) as Record<string, string>;
 
-	const validation = RegisterSchema.safeParse({
+	const validatedFields = registerSchema.safeParse({
 		name,
 		surname,
 		email,
 		password,
 	});
-	if (!validation.success) {
+	if (!validatedFields.success) {
 		const errors: Record<string, string> = {};
-		validation.error.errors.forEach((err) => {
+		validatedFields.error.errors.forEach((err) => {
 			if (err.path[0]) {
 				errors[err.path[0]] = err.message;
 			}
@@ -44,7 +44,7 @@ export async function registerUser(prevState: unknown, formData: FormData) {
 		};
 	}
 
-	await db.user.create({
+	const result = await db.user.create({
 		data: {
 			name,
 			surname,
@@ -52,7 +52,13 @@ export async function registerUser(prevState: unknown, formData: FormData) {
 			password: hashedPassword,
 		},
 	});
+
+	if (result) {
+		return {
+			success: "You have successfully registered.",
+		};
+	}
 	// TODO: Сделать верефикацию по email
 
-	redirect("/login");
+	// redirect("/login");
 }

@@ -34,7 +34,7 @@
 .inputGroup .input:focus ~ label,
 .inputGroup .input:valid ~ label {
 	transform: translateY(-25px) translateX(-5px);
-	font-family: var(--font-geist-mono);
+	font-family: var(--font-geist-mono, monospace);
 	line-height: 24px;
 	font-size: 13px;
 }

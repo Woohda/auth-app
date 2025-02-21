@@ -2,9 +2,9 @@ import styles from "./Button.module.css";
 export interface ButtonProps {
 	type: "submit" | "reset" | "button";
 	text: string;
-	error: string;
+	onClick?: () => void;
 }
-export default function Button({ type, text, error }: ButtonProps) {
+export default function Button({ type, text }: ButtonProps) {
 	return (
 		<div className={styles.buttonGroup}>
 			<button type={type} className={styles.button}>
@@ -12,7 +12,6 @@ export default function Button({ type, text, error }: ButtonProps) {
 					<span className={styles.styleText}>{text}</span>
 				</a>
 			</button>
-			<p className={styles.error}>{error}</p>
 		</div>
 	);
 }
