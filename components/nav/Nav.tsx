@@ -1,23 +1,44 @@
 import Link from "next/link";
 import styles from "./Nav.module.css";
-import { auth } from "@/app/api/auth/auth";
+import { auth, signOut } from "@/app/api/auth/auth";
 
-export default function Nav() {
-	const session = auth();
-	console.log(session);
+export default async function Nav() {
+	const session = await auth();
 	return (
 		<nav className={styles.nav}>
-			<Link className={styles.logo} href="/">
-				Home
-			</Link>
 			<ul>
 				<li>
-					<Link href="/sing-in">Sing In</Link>
+					<Link className={styles.logo} href="/">
+						Home
+					</Link>
 				</li>
-				<li>
-					<Link href="/sing-up">Sign Up</Link>
-				</li>
+				{session && (
+					<li>
+						<Link className={styles.logo} href="/profile">
+							Profile
+						</Link>
+					</li>
+				)}
 			</ul>
+			{session ? (
+				<button
+					onClick={async () => {
+						"use server";
+						await signOut();
+					}}
+				>
+					Sign Out
+				</button>
+			) : (
+				<ul>
+					<li>
+						<Link href="/sing-in">Sing In</Link>
+					</li>
+					<li>
+						<Link href="/sing-up">Sign Up</Link>
+					</li>
+				</ul>
+			)}
 		</nav>
 	);
 }
