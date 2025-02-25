@@ -4,10 +4,10 @@ import { useActionState } from "react";
 import { registrationUser } from "@/lib/auth/actions/registration";
 import styles from "@/styles/form.module.css";
 import Input from "@/components/input/Input";
-import Button from "@/components/button/Button";
+import ButtonSubmit from "@/components/button-submit/ButtonSubmit";
 
 export default function SingUpPage() {
-	const [formState, formAction] = useActionState(registrationUser, {
+	const [formState, formAction, isPending] = useActionState(registrationUser, {
 		values: { name: "", surname: "", email: "" },
 		errors: {},
 		error: "",
@@ -41,8 +41,10 @@ export default function SingUpPage() {
 					autocomplete="new-password"
 					error={formState?.errors?.password || ""}
 				/>
-				<Button type="submit" text="Sign Up" />
-				<p className={styles.error}>{formState?.error || ""}</p>
+				<ButtonSubmit isLoading={isPending}>Sing up</ButtonSubmit>
+				<p className={`${formState?.error ? styles.error : styles.none}`}>
+					{formState?.error || ""}
+				</p>
 			</form>
 		</div>
 	);
