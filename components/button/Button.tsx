@@ -4,9 +4,14 @@ export interface ButtonProps {
 	оnClick?: () => void;
 	children?: React.ReactNode;
 }
-export default function Button({ type, className, children }: ButtonProps) {
+export default function Button({
+	type,
+	className,
+	оnClick,
+	children,
+}: ButtonProps) {
 	return (
-		<button type={type} className={className}>
+		<button type={type} className={className} onClick={оnClick}>
 			{children}
 		</button>
 	);

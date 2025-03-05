@@ -11,7 +11,7 @@ export const publicRoutes = ["/"];
 @type {string[]}
 */
 
-export const authRoutes = ["/sing-in", "/sing-up"];
+export const authRoutes = ["/sign-in", "/sign-up"];
 
 /* 
 Дефолтный путь перенаправления после входа в систему

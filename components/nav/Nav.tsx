@@ -32,10 +32,10 @@ export default async function Nav() {
 			) : (
 				<ul>
 					<li>
-						<Link href="/sing-in">Sing In</Link>
+						<Link href="/sign-in">Sign In</Link>
 					</li>
 					<li>
-						<Link href="/sing-up">Sign Up</Link>
+						<Link href="/sign-up">Sign Up</Link>
 					</li>
 				</ul>
 			)}

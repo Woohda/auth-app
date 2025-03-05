@@ -6,7 +6,7 @@ import styles from "@/styles/form.module.css";
 import Input from "@/components/input/Input";
 import ButtonSubmit from "@/components/button-submit/ButtonSubmit";
 
-export default function SingUpPage() {
+export default function SignUpPage() {
 	const [formState, formAction, isPending] = useActionState(registrationUser, {
 		values: { name: "", surname: "", email: "" },
 		errors: {},
@@ -41,7 +41,7 @@ export default function SingUpPage() {
 					autocomplete="new-password"
 					error={formState?.errors?.password || ""}
 				/>
-				<ButtonSubmit isLoading={isPending}>Sing up</ButtonSubmit>
+				<ButtonSubmit isLoading={isPending}>Sign up</ButtonSubmit>
 				<p className={`${formState?.error ? styles.error : styles.none}`}>
 					{formState?.error || ""}
 				</p>
