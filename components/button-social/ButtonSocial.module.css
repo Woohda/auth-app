@@ -1,0 +1,66 @@
+.button_group {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-block-start: 15px;
+}
+
+.button {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-inline: 50px;
+	padding-block: 5px;
+	border: 1px solid var(--placeholder);
+	transition: border-color 0.3s ease-in-out;
+}
+
+.button:hover {
+	border-color: var(--foreground);
+}
+
+.button:hover .button_icon {
+	transform: scale(1.1);
+	transition: 0.3s ease-in-out;
+}
+
+.button_icon {
+	width: 25px;
+	height: 25px;
+	transition: 0.3s ease-in-out;
+}
+
+.text {
+	position: absolute;
+	top: -19px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 14px;
+	color: var(--placeholder);
+}
+
+.text::before {
+	content: "";
+	position: absolute;
+	top: 55%;
+	right: 0;
+	z-index: -1;
+	width: 79px;
+	height: 1px;
+	background: var(--placeholder);
+	box-shadow: 65px 0 0 var(--placeholder);
+	transform: translateY(-50%);
+}
+
+.text::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: -10px;
+	z-index: -1;
+	width: calc(100% + 20px);
+	height: 100%;
+	background: var(--background);
+}

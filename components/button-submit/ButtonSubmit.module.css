@@ -1,4 +1,4 @@
-.button_group {
+.button_container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -6,11 +6,11 @@
 	gap: 5px;
 }
 
-.button_group > button:active {
+.button_container > button:active {
 	transform: scale(1.1);
 }
 
-.button_group_style {
+.button_style {
 	position: relative;
 	display: inline-block;
 	padding: 10px 25px;
@@ -23,16 +23,16 @@
 	transition: 0.3s ease-in;
 }
 
-.button_group_style::before,
-.button_group_style::after {
+.button_style::before,
+.button_style::after {
 	content: "";
 	position: absolute;
 	background-color: var(--background);
-	transition: 0.3s ease-in;
+	transition: all 0.3s ease-in;
 	animation: scale 4s infinite ease;
 }
 
-.button_group_style::before {
+.button_style::before {
 	top: 6px;
 	left: -2px;
 	width: calc(100% + 4px);
@@ -40,7 +40,7 @@
 	transform: scaleY(1);
 }
 
-.button_group_style::after {
+.button_style::after {
 	left: 6px;
 	top: -2px;
 	height: calc(100% + 4px);
@@ -49,20 +49,20 @@
 	transition-delay: 0.3s;
 }
 
-.button_group_style:hover::before {
+.button_style:hover::before {
 	transform: scaleY(0);
 }
 
-.button_group_style:hover::after {
+.button_style:hover::after {
 	transform: scaleX(0);
 }
 
-.button_group_text {
+.button_text {
 	position: relative;
 	z-index: 2;
 }
 
-.loading .button_group_text {
+.loading .button_text {
 	opacity: 0;
 }
 

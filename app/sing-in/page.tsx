@@ -5,6 +5,7 @@ import { loginUser } from "@/lib/auth/actions/login";
 import styles from "@/styles/form.module.css";
 import Input from "@/components/input/Input";
 import ButtonSubmit from "@/components/button-submit/ButtonSubmit";
+import ButtonSocial from "@/components/button-social/ButtonSocial";
 
 export default function SingInPage() {
 	const [formState, formAction, isPending] = useActionState(loginUser, {
@@ -19,6 +20,7 @@ export default function SingInPage() {
 				<p className={`${formState?.error ? styles.error : styles.none}`}>
 					{formState?.error || ""}
 				</p>
+				<ButtonSocial />
 			</form>
 		</div>
 	);
